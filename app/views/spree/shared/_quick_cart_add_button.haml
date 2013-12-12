@@ -1,6 +1,8 @@
 .quick-add-to-cart-form
-  = form_for :order, :url => populate_orders_path do |f|
+  - order_number = Spree::Order.find(session[:order_id]).number
+  = form_tag api_order_line_items_path(order_number), method: :post do
     .fields
-      = number_field_tag "variants[#{product.master.id}]", 1, :class => 'add-quantity', :min => 1
+      = hidden_field_tag "line_item[variant_id]", product.master.id
+      = number_field_tag "line_item[quantity]", 1, :class => 'add-quantity', :min => 1
       = button_tag :class => 'large primary add-button', :type => :submit do
         = Spree.t(:add_to_cart)
