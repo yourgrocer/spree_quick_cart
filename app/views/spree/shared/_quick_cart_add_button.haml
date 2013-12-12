@@ -1,2 +1,6 @@
-= button_tag :class => 'large primary quick-add-to-cart-button', :type => :submit do
-  = Spree.t(:add_to_cart)
+.quick-add-to-cart-form
+  = form_for :order, :url => populate_orders_path do |f|
+    .fields
+      = number_field_tag "variants[#{product.master.id}]", 1, :class => 'add-quantity', :min => 1
+      = button_tag :class => 'large primary add-button', :type => :submit do
+        = Spree.t(:add_to_cart)
