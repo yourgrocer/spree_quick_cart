@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_quick_cart'
   s.version     = '0.0.1'
-  s.summary     = ''
+  s.summary     = 'Insert add to cart button in product index page'
   s.description = ''
   s.required_ruby_version = '>= 2.0.0'
 
