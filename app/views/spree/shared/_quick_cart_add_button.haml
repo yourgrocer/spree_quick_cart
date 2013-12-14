@@ -1,12 +1,11 @@
 .quick-add-to-cart-form
-  - order = Spree::Order.find(session[:order_id]) if session[:order_id]
-  - if order
-    %span.current-order-path(style="display:none")
-      = current_api_orders_path
-    = form_tag api_order_line_items_path(order.number), method: :post do
-      .fields
-        = hidden_field_tag "order_token", order.token
-        = hidden_field_tag "line_item[variant_id]", product.master.id
-        = number_field_tag "line_item[quantity]", 1, :class => 'add-quantity', :min => 1
-        = button_tag :class => 'large primary add-button', :type => :submit do
-          = Spree.t(:add_to_cart)
+  - order = current_order(true)
+  %span.current-order-path(style="display:none")
+    = current_api_orders_path
+  = form_tag api_order_line_items_path(order.number), method: :post do
+    .fields
+      = hidden_field_tag "order_token", order.token
+      = hidden_field_tag "line_item[variant_id]", product.master.id
+      = number_field_tag "line_item[quantity]", 1, :class => 'add-quantity', :min => 1
+      = button_tag :class => 'large primary add-button', :type => :submit do
+        = Spree.t(:add_to_cart)
