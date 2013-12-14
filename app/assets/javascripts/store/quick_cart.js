@@ -4,6 +4,7 @@ function SpreeQuickCart() {
 
   this.initializeQuickCartForm = function() {
     $(".quick-add-to-cart-form").find("form").submit(function() {
+      that.current_order_path = $(this).closest(".quick-add-to-cart-form").find('.current-order-path').text();
       Spree.ajax({
         url: $(this).attr("action"),
         type: "POST",
@@ -22,7 +23,7 @@ function SpreeQuickCart() {
 
   this.replaceCartInformation = function() {
     Spree.ajax({
-      url: '/shop/api/orders/current',
+      url: that.current_order_path,
       type: "GET",
       cache: false,
       dataType: 'json',

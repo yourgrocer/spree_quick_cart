@@ -1,6 +1,8 @@
 .quick-add-to-cart-form
   - order = Spree::Order.find(session[:order_id]) if session[:order_id]
   - if order
+    %span.current-order-path(style="display:none")
+      = current_api_orders_path
     = form_tag api_order_line_items_path(order.number), method: :post do
       .fields
         = hidden_field_tag "order_token", order.token
