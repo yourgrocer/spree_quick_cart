@@ -1,7 +1,9 @@
 SpreeQuickCart
 ==============
 
-Introduction goes here.
+This gem introduces the add to cart button in the product catalogue, adding product to cart and remaining in the same page.
+
+The cart operation is done via javascript, automatically updating the cart information.
 
 Installation
 ------------
@@ -37,4 +39,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_quick_cart/factories'
 ```
 
-Copyright (c) 2013 [name of extension creator], released under the New BSD License
+Copyright (c) 2013 [Francisco Trindade], released under the New BSD License
