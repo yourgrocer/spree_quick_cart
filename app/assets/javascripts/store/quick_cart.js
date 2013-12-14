@@ -14,11 +14,20 @@ function SpreeQuickCart() {
           that.replaceCartInformation();
         },
         error: function(data, textStatus, jqXHR) {
-          console.log('error adding to cart' + data)
+          that.showFlashMessage('There was a problem adding the item to the cart. Please reload the page and try again.', false);
         }
       });
       return false;
     });
+  };
+
+  this.showFlashMessage = function(message, success) {
+    var messageClass;
+    if (success == true){ messageClass = 'success'} else { messageClass = 'error' };
+    $('#content').prepend("<div class='flash " + messageClass + "'>" + message + "</div>");
+    timeoutID = window.setTimeout(function(){
+      $('#content').find(".flash.success").remove();
+    }, 3000);
   };
 
   this.replaceCartInformation = function() {
@@ -31,12 +40,13 @@ function SpreeQuickCart() {
         total = data.item_total;
         items_count = data.item_count;
         $('#link-to-cart .cart-info').html("Cart: (" + items_count + ") <span class='amount'>$" + total + "</span>")
+        that.showFlashMessage('Item added to the cart successfully.', true);
       },
       error: function(data, textStatus, jqXHR) {
-        console.log('error getting order info' + data)
+        that.showFlashMessage('There was a problem adding the item to the cart. Please reload the page and try again.', false);
       }
     });
-  }
+  };
 
 }
 
