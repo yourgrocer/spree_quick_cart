@@ -21,9 +21,8 @@ function SpreeQuickCart() {
   };
 
   this.replaceCartInformation = function() {
-    console.log('replacing stuff');
     Spree.ajax({
-      url: 'api/orders/current',
+      url: '/shop/api/orders/current',
       type: "GET",
       cache: false,
       dataType: 'json',
