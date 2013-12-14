@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_quick_cart'
-  s.version     = '0.2.0'
+  s.version     = '0.2.1'
   s.summary     = 'Insert add to cart button in product index page'
   s.description = 'Adds js quick add to cart button to product catalogue'
   s.required_ruby_version = '>= 2.0.0'
