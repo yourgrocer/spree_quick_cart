@@ -5,6 +5,10 @@ function SpreeQuickCart() {
   this.initializeQuickCartForm = function() {
     $(".quick-add-to-cart-form").find("form").submit(function() {
       that.current_order_path = $(this).closest(".quick-add-to-cart-form").find('.current-order-path').text();
+
+      that.submitButton = $(this).find("button");
+      that.buttonEnabled(false);
+
       Spree.ajax({
         url: $(this).attr("action"),
         type: "POST",
@@ -15,6 +19,9 @@ function SpreeQuickCart() {
         },
         error: function(data, textStatus, jqXHR) {
           that.showFlashMessage('There was a problem adding the item to the cart. Please reload the page and try again.', false);
+        },
+        complete: function() {
+          that.buttonEnabled(true);
         }
       });
       return false;
@@ -46,6 +53,14 @@ function SpreeQuickCart() {
         that.showFlashMessage('There was a problem adding the item to the cart. Please reload the page and try again.', false);
       }
     });
+  };
+
+  this.buttonEnabled = function(enabled) {
+    if (enabled == false){
+      that.submitButton.attr("disabled", "disabled");
+    } else {
+      that.submitButton.removeAttr("disabled");
+    }
   };
 
 }
