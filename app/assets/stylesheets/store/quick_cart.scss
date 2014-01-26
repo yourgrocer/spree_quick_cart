@@ -15,6 +15,25 @@
     }
   }
 
+}
 
+.quick-cart-flash {
+  position: fixed;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 20px;
+  color: white;
+  overflow: hidden;
 
+  &.success {
+    background: #8dba53;
+  }
+
+  &.error {
+    background: #e45353;
+  }
 }

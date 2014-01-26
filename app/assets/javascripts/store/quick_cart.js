@@ -31,9 +31,9 @@ function SpreeQuickCart() {
   this.showFlashMessage = function(message, success) {
     var messageClass;
     if (success == true){ messageClass = 'success'} else { messageClass = 'error' };
-    $('#content').prepend("<div class='flash " + messageClass + "'>" + message + "</div>");
+    $('#default').prepend("<div class='quick-cart-flash " + messageClass + "'>" + message + "</div>");
     timeoutID = window.setTimeout(function(){
-      $('#content').find(".flash.success").remove();
+      $('#default').find(".quick-cart-flash.success").remove();
     }, 3000);
   };
 
