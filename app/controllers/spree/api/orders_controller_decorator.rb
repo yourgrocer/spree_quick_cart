@@ -1,11 +1,10 @@
 Spree::Api::OrdersController.class_eval do
 
+  include Spree::Core::ControllerHelpers::Order
+
   def current
-    if session[:order_id]
-      @current_order = Spree::Order.find(session[:order_id])
-    else
-      @current_order = nil
-    end
+    current_order
+    render :current
   end
 
 end
