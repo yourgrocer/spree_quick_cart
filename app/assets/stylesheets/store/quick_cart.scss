@@ -1,3 +1,6 @@
+$break-phone: 768px;
+$break-tablet: 992px;
+
 .quick-add-to-cart-form {
   margin-top: 5px;
 
@@ -19,6 +22,23 @@
     }
   }
 
+}
+
+@media screen and (max-width: $break-phone) {
+  .quick-add-to-cart-form {
+
+    .fields {
+      .add-quantity {
+        width: 20px;
+        margin-right: 5px;
+      }
+
+      .add-button {
+        width: 100px;
+        font-size: 12px;
+      }
+    }
+  }
 }
 
 .quick-cart-flash {
