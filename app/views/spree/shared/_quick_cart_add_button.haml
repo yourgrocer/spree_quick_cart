@@ -1,5 +1,5 @@
 .quick-add-to-cart-form
-  - order = current_order(true)
+  - order = current_order(create_order_if_necessary: true)
   %span.current-order-path(style="display:none")
     = api_current_order_path
   = form_tag api_order_line_items_path(order.number), method: :post do
