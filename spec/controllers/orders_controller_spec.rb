@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe Spree::Api::OrdersController do
 
+  let(:user) { mock_model Spree::User, :last_incomplete_spree_order => nil, :has_spree_role? => true, :spree_api_key => 'fake' }
+  before :each do
+    controller.stub :spree_current_user => user
+    controller.stub :check_authorization
+  end
+
   describe 'current' do
 
     before :each do
@@ -20,7 +26,7 @@ describe Spree::Api::OrdersController do
 
     it 'should return order in session' do
       current_order = double(Spree::Order, id: 666)
-      controller.should_receive(:current_order)
+      controller.should_receive(:current_order).at_least(:once)
 
       spree_get :current, format: :json
     end
