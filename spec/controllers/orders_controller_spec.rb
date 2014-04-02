@@ -20,12 +20,9 @@ describe Spree::Api::OrdersController do
 
     it 'should return order in session' do
       current_order = double(Spree::Order, id: 666)
-      Spree::Order.should_receive(:find).and_return current_order
-
-      session.stub(:[]).with(:order_id).and_return 666
+      controller.should_receive(:current_order)
 
       spree_get :current, format: :json
-      assigns(:current_order).should == current_order
     end
 
   end
