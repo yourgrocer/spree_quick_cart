@@ -4,7 +4,7 @@ function SpreeQuickCart() {
 
   this.initializeQuickCartForm = function() {
     $(".quick-add-to-cart-form").find("form").submit(function() {
-      that.order_path = $(this).closest(".quick-add-to-cart-form").find('.order-path').text();
+      that.order_path = $.trim($(this).closest(".quick-add-to-cart-form").find('.order-path').text());
 
       that.submitButton = $(this).find("button");
       that.buttonEnabled(false);
