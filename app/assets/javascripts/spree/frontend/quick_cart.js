@@ -46,7 +46,7 @@ function SpreeQuickCart() {
       success: function(data, textStatus, jqXHR) {
         total = data.display_total;
         items_count = data.total_quantity;
-        $('#link-to-cart .cart-info').html("Cart: (" + items_count + ") <span class='amount'>" + total + "</span>")
+        $('#link-to-cart .cart-info').html("(" + items_count + ") <span class='amount'>" + total + "</span>")
         that.showFlashMessage('Item added to the cart successfully.', true);
       },
       error: function(data, textStatus, jqXHR) {
