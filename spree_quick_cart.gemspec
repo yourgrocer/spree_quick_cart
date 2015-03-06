@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_quick_cart'
-  s.version     = '2.2.10'
+  s.version     = '2.4.5'
   s.summary     = 'Insert add to cart button in product index page'
   s.description = 'Adds js quick add to cart button to product catalogue'
   s.required_ruby_version = '>= 2.0.0'
@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 2.2.10'
-  s.add_dependency 'spree_frontend', '~> 2.2.10'
-  s.add_dependency 'spree_backend', '~> 2.2.10'
-  s.add_dependency 'spree_api', '~> 2.2.10'
+  s.add_dependency 'spree_core', '~> 2.4.5'
+  s.add_dependency 'spree_frontend', '~> 2.4.5'
+  s.add_dependency 'spree_backend', '~> 2.4.5'
+  s.add_dependency 'spree_api', '~> 2.4.5'
   s.add_dependency 'rabl'
 
   s.add_development_dependency 'capybara', '~> 2.1'
