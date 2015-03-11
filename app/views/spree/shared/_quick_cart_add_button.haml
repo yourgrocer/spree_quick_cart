@@ -4,6 +4,7 @@
     = api_quick_order_path(order, order_token: order.guest_token)
   = form_tag api_order_line_items_path(order.number), method: :post do
     .fields
+      = hidden_field_tag "options[quick_add]", "true" 
       = hidden_field_tag "order_token", order.guest_token
       = hidden_field_tag "line_item[variant_id]", product.master.id
       = number_field_tag "line_item[quantity]", 1, :class => 'add-quantity', :min => 1
