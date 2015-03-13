@@ -3,7 +3,7 @@
     = display_price(@product)
     - if @product.property('price_per_kg')
       .price-per-kg
-        = "($#{product.property('price_per_kg')} per kg)"
+        = "($#{@product.property('price_per_kg')} per kg)"
   %span.order-path(style="display:none")
     = api_quick_order_path(@quick_cart_current_order, order_token: @quick_cart_current_order.guest_token)
   = form_tag api_order_line_items_path(@quick_cart_current_order.number), method: :post do
