@@ -1,10 +1,10 @@
 .quick-add-to-cart-form
   %span.order-path(style="display:none")
-    = api_quick_order_path(@current_order, order_token: @current_order.guest_token)
-  = form_tag api_order_line_items_path(@current_order.number), method: :post do
+    = api_quick_order_path(@quick_cart_current_order, order_token: @quick_cart_current_order.guest_token)
+  = form_tag api_order_line_items_path(@quick_cart_current_order.number), method: :post do
     .fields
       = hidden_field_tag "options[quick_add]", "true" 
-      = hidden_field_tag "order_token", @current_order.guest_token
+      = hidden_field_tag "order_token", @quick_cart_current_order.guest_token
       = hidden_field_tag "line_item[variant_id]", product.master.id
       = number_field_tag "line_item[quantity]", 1, :class => 'add-quantity', :min => 1
       = button_tag :class => 'large primary add-button', :type => :submit do
