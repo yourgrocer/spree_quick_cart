@@ -4,6 +4,11 @@ $break-tablet: 992px;
 .quick-add-to-cart-form {
   margin-top: 5px;
 
+  .price.selling .price-per-kg {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
   .fields {
     height: 33px;
 

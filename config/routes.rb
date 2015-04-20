@@ -1,5 +1,7 @@
 Spree::Core::Engine.routes.draw do
+
   namespace :api do
-    get '/current_order', to: 'orders#current'
+    resources :quick_orders, only: [:show]
   end
+
 end

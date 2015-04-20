@@ -4,7 +4,7 @@ function SpreeQuickCart() {
 
   this.initializeQuickCartForm = function() {
     $(".quick-add-to-cart-form").find("form").submit(function() {
-      that.order_path = $(this).closest(".quick-add-to-cart-form").find('.order-path').text();
+      that.order_path = $(this).closest(".quick-add-to-cart-form").find('.order-path').text().trim();
 
       that.submitButton = $(this).find("button");
       that.buttonEnabled(false);
@@ -31,7 +31,7 @@ function SpreeQuickCart() {
   this.showFlashMessage = function(message, success) {
     var messageClass;
     if (success == true){ messageClass = 'success'} else { messageClass = 'error' };
-    $('#default').prepend("<div class='quick-cart-flash " + messageClass + "'>" + message + "</div>");
+    $('body').prepend("<div class='quick-cart-flash " + messageClass + "'>" + message + "</div>");
     timeoutID = window.setTimeout(function(){
       $('#default').find(".quick-cart-flash.success").remove();
     }, 3000);
@@ -46,7 +46,7 @@ function SpreeQuickCart() {
       success: function(data, textStatus, jqXHR) {
         total = data.display_total;
         items_count = data.total_quantity;
-        $('#link-to-cart .cart-info').html("Cart: (" + items_count + ") <span class='amount'>" + total + "</span>")
+        $('#link-to-cart .cart-info').html("(" + items_count + ") <span class='amount'>" + total + "</span>")
         that.showFlashMessage('Item added to the cart successfully.', true);
       },
       error: function(data, textStatus, jqXHR) {
